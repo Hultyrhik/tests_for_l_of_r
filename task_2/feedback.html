@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="frontend/feedback.css">
+</head>
+<body>
+    <form action="" method="get" class="form-feedback">
+        <div>
+            <span>
+                Форма обратной связи
+            </span>
+        </div>
+        <div class="form-feedback">
+          <label for="comment">Комментарий</label>
+          <input type="text" name="comment" id="comment"/>
+        </div>
+        <div class="form-feedback">
+          <label for="name">ФИО</label>
+          <input  type="text" name="name" id="name" required />
+        </div>
+        <div class="form-feedback">
+            <label for="address">Адрес</label>
+            <input type="text" name="address" id="address"/>
+        </div>
+        <div class="form-feedback">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email"/>
+        </div>
+        <div class="form-feedback">
+            <label for="phone">Мобильный телефон</label>
+            <input type="tel" name="phone" id="phone" 
+            pattern="7-[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+            placeholder="7-999-999-9999" maxlength="14"
+            required />
+        </div>
+        <div class="form-feedback">
+          <input type="submit" value="Отправить" />
+        </div>
+      </form>
+</body>
+</html>
