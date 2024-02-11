@@ -1,3 +1,7 @@
+CREATE DATABASE `task_1_fyodor`;
+USE `task_1_fyodor`;
+
+
 CREATE TABLE `книги` (
     `id` INT AUTO_INCREMENT,
     `isbn` VARCHAR(17) NOT NULL UNIQUE,
