@@ -2,7 +2,7 @@ const config = {
 	database: {
 		host:	  'localhost', 	// database host
 		user: 	  'root', 		// your database username
-		password: '!sms3rkV6', 		// your database password
+		password: '123', 		// your database password
 		port: 	  3306, 		// default MySQL port
 		db: 	  'feedback_fyodor' 		// your database name
 	},
