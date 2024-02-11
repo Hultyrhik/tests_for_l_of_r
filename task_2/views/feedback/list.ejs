@@ -1,0 +1,37 @@
+<%- include ../layouts/header.ejs %>
+
+<% if (messages.error) { %>
+	<p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+	<p style="color:green"><%- messages.success %></p>
+<% } %>	
+
+<table width='80%' border=0>
+
+	<tr style='text-align:left; background-color:#CCC'>
+		<th>Comment</th>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Email</th>
+		<th>Phone</th>
+		
+	</tr>
+	
+	<% if (data) { %>
+	<% data.forEach(function(feedback){ %>
+		<tr>
+			<td><%= feedback.comment %></td>
+			<td><%= feedback.name %></td>
+			<td><%= feedback.address %></td>
+			<td><%= feedback.email %></td>
+			<td><%= feedback.phone %></td>
+		</tr>
+	<% }) %>
+	<% } %>
+
+</table>
+
+
+<%- include ../layouts/footer.ejs %>

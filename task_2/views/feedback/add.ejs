@@ -1,0 +1,44 @@
+<%- include ../layouts/header.ejs %>	
+
+<% if (messages.error) { %>
+	<p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+	<p style="color:green"><%- messages.success %></p>
+<% } %>
+
+<form action="/feedback/add" method="post" name="form1">
+	<table width="25%" border="0">
+		<tr> 
+			<td>Comment</td>
+			<td><input type="text" name="comment" id="comment" value="<%= comment %>" /></td>
+		</tr>
+		<tr> 
+			<td>Name</td>
+			<td><input type="text" name="name" value="<%= name %>" required/></td>
+		</tr>
+		<tr> 
+			<td>Address</td>
+			<td><input type="text" name="address" value="<%= address %>" /></td>
+		</tr>
+		<tr> 
+			<td>Email</td>
+			<td><input type="text" name="email" value="<%= email %>" /></td>
+		</tr>
+		<tr> 
+			<td>Phone</td>
+			<td><input type="tel" name="phone" value="<%= phone %>" 
+			pattern="7-[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+            placeholder="7-999-999-9999" maxlength="14"
+            required /></td>
+		</tr>
+		<tr> 
+			<td></td>
+			<td><input type="submit" name="Submit" value="Add" /></td>
+		</tr>
+	</table>
+</form>
+
+
+<%- include ../layouts/footer.ejs %>
