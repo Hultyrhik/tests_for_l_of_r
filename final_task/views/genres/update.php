@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\Genres $model */
 
-$this->title = 'Update Genres: ' . $model->id;
+$this->title = 'Изменить жанр с ID - ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Genres', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

@@ -14,14 +14,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'isbn')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true])->label('Название') ?>
 
-    <?= $form->field($model, 'number_of_pages')->textInput() ?>
+    <?= $form->field($model, 'number_of_pages')->textInput()->label('Количество страниц') ?>
 
-    <?= $form->field($model, 'published_at')->textInput() ?>
+    <?= $form->field($model, 'published_at')->textInput()->label('Опубликовано') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

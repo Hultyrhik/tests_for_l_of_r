@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Genres', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить жанр', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -30,7 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'genre',
+            [
+                'label' => 'Жанр',
+                'attribute' => 'genre'
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Genres $model, $key, $index, $column) {

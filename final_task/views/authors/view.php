@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены что хотите удалить эту запись?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -29,10 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'first_name',
-            'last_name',
+            [
+                'label' => 'ID',
+                'attribute' =>'id'
+
+            ],
+            [
+                'label' => 'Имя',
+                'attribute' => 'first_name'
+            ],
+            [
+                'label' => 'Фамилия',
+                'attribute' => 'last_name'
+            ]
         ],
     ]) ?>
+
+<?= Html::a('Назад', ['index'], ['class' => 'btn btn-primary']) ?>
 
 </div>
