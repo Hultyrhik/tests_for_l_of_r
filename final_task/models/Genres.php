@@ -1,0 +1,57 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "genres".
+ *
+ * @property int $id
+ * @property string $genre
+ *
+ * @property GenreOfBook[] $genreOfBooks
+ */
+class Genres extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'genres';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['genre'], 'required'],
+            [['genre'], 'string', 'max' => 30],
+            [['genre'], 'unique'],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'genre' => 'Genre',
+        ];
+    }
+
+    /**
+     * Gets query for [[GenreOfBooks]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGenreOfBooks()
+    {
+        return $this->hasMany(GenreOfBook::class, ['genre' => 'id']);
+    }
+}
