@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var app\models\GenresSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Genres';
+$this->title = 'Жанры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="genres-index">
