@@ -15,6 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="books-index">
 
+    <pre>
+        <?php print_r($dataProvider->models) ?>
+    </pre>
+
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
