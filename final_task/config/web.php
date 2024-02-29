@@ -52,6 +52,7 @@ $config = [
     
     ],
     'params' => $params,
+    'defaultRoute' => 'books/mainpage'
 ];
 
 if (YII_ENV_DEV) {

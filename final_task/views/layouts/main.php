@@ -39,7 +39,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Главная страница', 'url' => ['/site/index']],
+            ['label' => 'Главная страница', 'url' => ['/books/mainpage']],
             ['label' => 'Авторы', 'url' => ['/authors/index']],
             ['label' => 'Жанры', 'url' => ['/genres/index']],
             ['label' => 'Книги', 'url' => ['/books/index']]

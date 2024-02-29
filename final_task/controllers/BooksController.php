@@ -47,6 +47,17 @@ class BooksController extends Controller
         ]);
     }
 
+    public function actionMainpage()
+    {
+        $searchModel = new BooksSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('mainpage', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Books model.
      * @param int $id ID
