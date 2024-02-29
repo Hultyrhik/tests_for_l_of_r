@@ -9,6 +9,7 @@ use yii\grid\GridView;
 /** @var yii\web\View $this */
 /** @var app\models\BooksSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+/** @var yii\models\Books $model */
 
 $this->title = 'Главная страница';
 $this->params['breadcrumbs'][] = $this->title;
@@ -16,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="books-index">
 
     <pre>
-        <?php print_r($dataProvider->models) ?>
+        <?php var_dump($model) ?>
     </pre>
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -43,6 +44,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Опубликовано',
                 'attribute' => 'published_at'
             ],
+            [
+                'label' => 'Genres',
+                'format' => 'ntext',
+                'attribute' => 'genre',
+                'value' => function ($model) {
+                    foreach ($model->genres as $genre) {
+                        $Genres[] = $genre->genre;
+                    }
+                    return implode ("\n", $Genres);
+                }
+            ]
             
         ],
     ]); ?>

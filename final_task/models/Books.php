@@ -60,18 +60,20 @@ class Books extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getAuthoreds()
+    public function getAuthors()
     {
-        return $this->hasMany(Authored::class, ['book' => 'id']);
+        return $this->hasMany(Authors::class, ['id' => 'author'])->
+            viaTable('authored', ['book' => 'id']);
     }
 
     /**
-     * Gets query for [[GenreOfBooks]].
+     * Gets query for [[Genres]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getGenreOfBooks()
+    public function getGenres()
     {
-        return $this->hasMany(GenreOfBook::class, ['book' => 'id']);
+        return $this->hasMany(Genres::class, ['id' => 'genre'])->
+            viaTable('genre_of_book', ['book' => 'id']);
     }
 }

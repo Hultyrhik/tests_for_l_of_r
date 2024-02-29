@@ -52,9 +52,13 @@ class BooksController extends Controller
         $searchModel = new BooksSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+        $model = new Books;
+        $model = $model->getGenres()->all();
+
         return $this->render('mainpage', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'model' => $model
         ]);
     }
 

@@ -11,6 +11,8 @@ use app\models\Books;
  */
 class BooksSearch extends Books
 {
+    public $genre;
+    
     /**
      * {@inheritdoc}
      */
@@ -18,7 +20,7 @@ class BooksSearch extends Books
     {
         return [
             [['id', 'number_of_pages'], 'integer'],
-            [['isbn', 'title', 'published_at'], 'safe'],
+            [['isbn', 'title', 'published_at', 'genre'], 'safe'],
         ];
     }
 
@@ -40,7 +42,7 @@ class BooksSearch extends Books
      */
     public function search($params)
     {
-        $query = Books::find();
+        $query = Books::find()->innerJoinWith('genres', true);
 
         // add conditions that should always apply here
 
@@ -64,7 +66,8 @@ class BooksSearch extends Books
         ]);
 
         $query->andFilterWhere(['like', 'isbn', $this->isbn])
-            ->andFilterWhere(['like', 'title', $this->title]);
+            ->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'genre', $this->genre]);
 
         return $dataProvider;
     }
