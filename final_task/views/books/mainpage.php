@@ -16,9 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="books-index">
 
-    <pre>
-        <?php var_dump($model) ?>
-    </pre>
+    <!-- <pre>
+        <?php var_dump($dataProvider->models) ?>
+    </pre> -->
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -47,10 +47,10 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Genres',
                 'format' => 'ntext',
-                'attribute' => 'genre',
+                'attribute' => 'genrename',
                 'value' => function ($model) {
-                    foreach ($model->genres as $genre) {
-                        $Genres[] = $genre->genre;
+                    foreach ($model->genres as $genrename) {
+                        $Genres[] = $genrename->genrename;
                     }
                     return implode ("\n", $Genres);
                 }

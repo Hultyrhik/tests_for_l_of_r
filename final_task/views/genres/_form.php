@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'genre')->textInput(['maxlength' => true])->label('Жанр') ?>
+    <?= $form->field($model, 'genrename')->textInput(['maxlength' => true])->label('Жанр') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>

@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             [
                 'label' => 'Жанр',
-                'attribute' => 'genre'
+                'attribute' => 'genrename'
             ]
             ,
         ],

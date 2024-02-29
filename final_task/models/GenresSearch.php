@@ -18,7 +18,7 @@ class GenresSearch extends Genres
     {
         return [
             [['id'], 'integer'],
-            [['genre'], 'safe'],
+            [['genrename'], 'safe'],
         ];
     }
 
@@ -61,7 +61,7 @@ class GenresSearch extends Genres
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'genre', $this->genre]);
+        $query->andFilterWhere(['like', 'genrename', $this->genrename]);
 
         return $dataProvider;
     }

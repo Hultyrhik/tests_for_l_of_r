@@ -20,7 +20,7 @@ CREATE TABLE `authors` (
 
 CREATE TABLE `genres` (
     `id` INT AUTO_INCREMENT,
-    `genre` VARCHAR(30) NOT NULL UNIQUE,
+    `genrename` VARCHAR(30) NOT NULL UNIQUE,
     PRIMARY KEY(`id`)
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE `genre_of_book` (
 
 
 
-INSERT INTO `genres` (`genre`)
+INSERT INTO `genres` (`genrename`)
 VALUES 
     ('Фантастика'),
     ('Фэнтези'),
@@ -167,7 +167,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Фантастика')
+        WHERE `genrename` = 'Фантастика')
         ,
         (SELECT `id`
         FROM `books`
@@ -176,7 +176,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Триллер')
+        WHERE `genrename` = 'Триллер')
         ,
         (SELECT `id`
         FROM `books`
@@ -185,7 +185,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Фантастика')
+        WHERE `genrename` = 'Фантастика')
         ,
         (SELECT `id`
         FROM `books`
@@ -194,7 +194,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Фантастика')
+        WHERE `genrename` = 'Фантастика')
         ,
         (SELECT `id`
         FROM `books`
@@ -203,7 +203,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Детектив')
+        WHERE `genrename` = 'Детектив')
         ,
         (SELECT `id`
         FROM `books`
@@ -212,7 +212,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Ужасы')
+        WHERE `genrename` = 'Ужасы')
         ,
         (SELECT `id`
         FROM `books`
@@ -221,7 +221,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Фантастика')
+        WHERE `genrename` = 'Фантастика')
         ,
         (SELECT `id`
         FROM `books`
@@ -230,7 +230,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Приключение')
+        WHERE `genrename` = 'Приключение')
         ,
         (SELECT `id`
         FROM `books`
@@ -239,7 +239,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Фэнтези')
+        WHERE `genrename` = 'Фэнтези')
         ,
         (SELECT `id`
         FROM `books`
@@ -248,7 +248,7 @@ VALUES
     (
         (SELECT `id`
         FROM `genres`
-        WHERE `genre` = 'Триллер')
+        WHERE `genrename` = 'Триллер')
         ,
         (SELECT `id`
         FROM `books`

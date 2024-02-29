@@ -11,7 +11,7 @@ use app\models\Books;
  */
 class BooksSearch extends Books
 {
-    public $genre;
+    public $genrename;
     
     /**
      * {@inheritdoc}
@@ -20,7 +20,7 @@ class BooksSearch extends Books
     {
         return [
             [['id', 'number_of_pages'], 'integer'],
-            [['isbn', 'title', 'published_at', 'genre'], 'safe'],
+            [['isbn', 'title', 'published_at', 'genrename'], 'safe'],
         ];
     }
 
@@ -67,7 +67,7 @@ class BooksSearch extends Books
 
         $query->andFilterWhere(['like', 'isbn', $this->isbn])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'genre', $this->genre]);
+            ->andFilterWhere(['like', 'genrename', $this->genrename]);
 
         return $dataProvider;
     }
