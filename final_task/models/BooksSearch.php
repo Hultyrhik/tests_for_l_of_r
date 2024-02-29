@@ -12,6 +12,8 @@ use app\models\Books;
 class BooksSearch extends Books
 {
     public $genrename;
+    public $first_name;
+    public $last_name;
     
     /**
      * {@inheritdoc}
@@ -20,7 +22,7 @@ class BooksSearch extends Books
     {
         return [
             [['id', 'number_of_pages'], 'integer'],
-            [['isbn', 'title', 'published_at', 'genrename'], 'safe'],
+            [['isbn', 'title', 'published_at', 'genrename', 'first_name', 'last_name' ], 'safe'],
         ];
     }
 
@@ -42,7 +44,8 @@ class BooksSearch extends Books
      */
     public function search($params)
     {
-        $query = Books::find()->innerJoinWith('genres', true);
+        $query = Books::find()->innerJoinWith('genres', true)
+            ->innerJoinWith('authors', true);
 
         // add conditions that should always apply here
 
@@ -60,14 +63,17 @@ class BooksSearch extends Books
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            'books.id' => $this->id,
             'number_of_pages' => $this->number_of_pages,
             'published_at' => $this->published_at,
         ]);
 
         $query->andFilterWhere(['like', 'isbn', $this->isbn])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'genrename', $this->genrename]);
+            ->andFilterWhere(['like', 'genrename', $this->genrename])
+            ->andFilterWhere(['like', 'first_name', $this->first_name])
+            ->andFilterWhere(['like', 'last_name', $this->last_name])
+            ;
 
         return $dataProvider;
     }

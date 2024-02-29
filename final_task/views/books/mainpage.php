@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'published_at'
             ],
             [
-                'label' => 'Genres',
+                'label' => 'Жанры',
                 'format' => 'ntext',
                 'attribute' => 'genrename',
                 'value' => function ($model) {
@@ -54,7 +54,35 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                     return implode ("\n", $Genres);
                 }
-            ]
+            ],
+            [
+                'label' => 'Имя Автора',
+                'format' => 'ntext',
+                'attribute' => 'first_name',
+                'value' => function ($model) {
+                    
+                   // var_dump($model->authors);
+                    
+                    foreach ($model->authors as $first_name) {
+                        $Authors_first_name[] = $first_name->first_name;
+                    }
+                   return implode ("\n", $Authors_first_name);
+                }
+            ],
+            [
+                'label' => 'Фамилия Автора',
+                'format' => 'ntext',
+                'attribute' => 'last_name',
+                'value' => function ($model) {
+                    
+                   // var_dump($model->authors);
+                    
+                    foreach ($model->authors as $last_name) {
+                        $Authors_last_name[] = $last_name->last_name;
+                    }
+                   return implode ("\n", $Authors_last_name);
+                }
+            ],
             
         ],
     ]); ?>
