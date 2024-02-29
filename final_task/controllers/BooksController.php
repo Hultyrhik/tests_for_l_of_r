@@ -52,10 +52,29 @@ class BooksController extends Controller
         $searchModel = new BooksSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+        $topgenres = (new \yii\db\Query())
+                    ->select(['genrename', 'Count(genrename)'])
+                    ->from('genres')
+                    ->join('INNER JOIN', 'genre_of_book', 'genres.id = genre_of_book.genre')
+                    ->groupBy('genrename')
+                    ->orderBy('COUNT(genrename) DESC')
+                    ->limit(3)
+                    ->all();
+
+        $topauthors = (new \yii\db\Query())
+                    ->select(['first_name', 'last_name', 'Count(authors.id)'])
+                    ->from('authors')
+                    ->join('INNER JOIN', 'authored', 'authors.id = authored.author')
+                    ->groupBy('authors.id')
+                    ->orderBy('Count(authors.id) DESC')
+                    ->limit(3)
+                    ->all();
 
         return $this->render('mainpage', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
+            'topgenres' => $topgenres,
+            'topauthors' => $topauthors
         ]);
     }
 
