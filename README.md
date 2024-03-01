@@ -4,7 +4,19 @@
 
 ### 1. Изменить пароль в config/db.php на свой.
 ### 2. Запустить создание и заполнение таблицы library_fyodor с помощью SQL скрипта  create_DB.sql .
+### 3. Запустить команду composer install .
+### 4. Открыть http://localhost:8080/ .
 
+#### Скриншот Топ 3 Авторов и Жанров
+![ER_Diagram.png](./screenshots/top3.png)
+#### Скриншот Главной страницы
+![ER_Diagram.png](./screenshots/mainpage.png)
+#### Скриншот страницы Авторы
+![ER_Diagram.png](./screenshots/authors.png)
+#### Скриншот страницы Жанры
+![ER_Diagram.png](./screenshots/genres.png)
+#### Скриншот страницы Книги
+![ER_Diagram.png](./screenshots/books.png)
 
 ## Task 1
 
