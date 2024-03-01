@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\GenreOfBook;
 use app\models\Genres;
 use app\models\GenresSearch;
 use yii\web\Controller;
@@ -111,8 +112,14 @@ class GenresController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $genreOfBooks = GenreOfBook::find()->where(['genre' => $id])->all();
+       
+        if ($genreOfBooks != null) {
+            foreach($genreOfBooks as $genreOfBook)
+            $genreOfBook->delete();
+        }
 
+        $this->findModel($id)->delete();
         return $this->redirect(['index']);
     }
 

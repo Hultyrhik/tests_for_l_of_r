@@ -4,6 +4,11 @@ namespace app\controllers;
 
 use app\models\Books;
 use app\models\BooksSearch;
+use app\models\BooksIndexSearch;
+use app\models\Authored;
+use app\models\GenreOfBook;
+use app\models\Genres;
+use app\models\Authors;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,7 +43,7 @@ class BooksController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new BooksSearch();
+        $searchModel = new BooksIndexSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -100,8 +105,23 @@ class BooksController extends Controller
     {
         $model = new Books();
 
-        if ($this->request->isPost) {
+        if ($this->request->isPost) {            
             if ($model->load($this->request->post()) && $model->save()) {
+                
+                foreach($_POST['Books']['genres'] as $genreID) {
+                    $genre_of_book = new GenreOfBook;
+                    $genre_of_book->book = $model->id;
+                    $genre_of_book->genre = $genreID;
+                    $genre_of_book->save(); 
+                }
+
+                foreach($_POST['Books']['authors'] as $genreID) {
+                    $authored = new Authored;
+                    $authored->book = $model->id;
+                    $authored->author = $genreID;
+                    $authored->save(); 
+                    }
+                
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -110,6 +130,8 @@ class BooksController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'genres' => Genres::getGenres(),
+            'authors' => Authors::getAuthors(),
         ]);
     }
 
@@ -142,6 +164,22 @@ class BooksController extends Controller
      */
     public function actionDelete($id)
     {
+        $authored = Authored::find()->where(['book' => $id])->all();
+       
+        if ($authored != null) {
+            foreach($authored as $row)
+            $row->delete();
+        }
+
+        $genreOfBook = GenreOfBook::find()->where(['book' => $id])->all();
+       
+        if ($genreOfBook != null) {
+            foreach($genreOfBook as $row)
+            $row->delete();
+        }
+
+
+        
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /** @var app\models\Books $model */
 
 $this->title = 'Добавить книгу';
-$this->params['breadcrumbs'][] = ['label' => 'Books', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Книги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="books-create">
@@ -15,6 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'genres' => $genres,
+        'authors' => $authors,
     ]) ?>
 
 </div>

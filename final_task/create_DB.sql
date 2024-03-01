@@ -7,7 +7,7 @@ CREATE TABLE `books` (
     `isbn` VARCHAR(17) NOT NULL UNIQUE,
     `title` VARCHAR(255) NOT NULL,
     `number_of_pages` SMALLINT NOT NULL,
-    `published_at` DATE DEFAULT(NULL),
+    `published_at` DATE,
     PRIMARY KEY(`id`)
 );
 

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Authors;
 use app\models\AuthorsSearch;
+use app\models\Authored;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -111,8 +112,14 @@ class AuthorsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $authored = Authored::find()->where(['author' => $id])->all();
+       
+        if ($authored != null) {
+            foreach($authored as $row)
+            $row->delete();
+        }
 
+        $this->findModel($id)->delete();
         return $this->redirect(['index']);
     }
 

@@ -54,4 +54,8 @@ class Genres extends \yii\db\ActiveRecord
     {
         return $this->hasMany(GenreOfBook::class, ['genre' => 'id']);
     }
+
+    public static function getGenres() {
+        return Genres::find()->select(['id', 'genrename'])->all() ;
+    } 
 }

@@ -55,4 +55,8 @@ class Authors extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Authored::class, ['author' => 'id']);
     }
+
+    public static function getAuthors() {
+        return Authors::find()->select(['id', 'first_name', 'last_name'])->all();
+    }
 }

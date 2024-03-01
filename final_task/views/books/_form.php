@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -20,10 +21,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'published_at')->textInput()->label('Опубликовано') ?>
 
+    <?= $form->field($model, 'genres')->checkboxList(yii\helpers\ArrayHelper::map($genres, 'id', 'genrename')) ?>
+
+    <?= $form->field($model, 'authors')->checkboxList(yii\helpers\ArrayHelper::map($authors, 'id', 'last_name')) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
+
+
 
 </div>
