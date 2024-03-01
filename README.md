@@ -1,5 +1,11 @@
 # tests_for_l_of_r
 
+## Финальное задание
+
+### 1. Изменить пароль в config/db.php на свой.
+### 2. Запустить создание и заполнение таблицы library_fyodor с помощью SQL скрипта  create_DB.sql .
+
+
 ## Task 1
 
 ### 1. source task_1/create_DB.sql
